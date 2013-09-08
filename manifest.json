@@ -1,0 +1,16 @@
+{
+  "name": "CSSvacuum",
+  "version": "0.1",
+  "description": "Optimize your critical rendering path",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "/cssvacuum.js"
+      ]
+    }
+  ],
+  "manifest_version": 2
+}
