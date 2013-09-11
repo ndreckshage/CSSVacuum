@@ -32,6 +32,10 @@ Example use in production...
 + cache the resulting CSS
 + if cache key exists, serve critical CSS inline, and full CSS async in footer
 
+Install (official)
+==================
++ https://chrome.google.com/webstore/detail/cssvacuum/maellbbeahlpainnadomcgbcgmhjkbac
+
 Install (source)
 ================
 + clone the repo
