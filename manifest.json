@@ -8,6 +8,8 @@
         "<all_urls>"
       ],
       "js": [
+        "/jquery-2.0.3.min.js",
+        "/raphael-2.1.2.min.js",
         "/cssvacuum.js"
       ]
     }
