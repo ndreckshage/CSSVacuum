@@ -1,6 +1,6 @@
 {
   "name": "CSSvacuum",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "Optimize your critical rendering path",
   "content_scripts": [
     {
@@ -8,8 +8,8 @@
         "<all_urls>"
       ],
       "js": [
-        "/jquery-2.0.3.min.js",
-        "/raphael-2.1.2.min.js",
+        "/lib/jquery-2.0.3.min.js",
+        "/lib/raphael-2.1.2.min.js",
         "/cssvacuum.js"
       ]
     }

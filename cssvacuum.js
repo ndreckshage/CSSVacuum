@@ -9,7 +9,9 @@
   var instance = null;
 
   /**
-   *
+   * @constructor
+   * @param {number} ABOVE_THE_FOLD line for elements that should be included
+   * @param {number} SAFE_INDEX     z-index of cssvacuum
    */
   function CSSVacuum (ABOVE_THE_FOLD, SAFE_INDEX) {
     // general properties
@@ -33,7 +35,7 @@
   }
 
   /**
-   *
+   * initialize cssvacuum
    */
   CSSVacuum.prototype.init = function () {
     var _this = this;
@@ -52,7 +54,7 @@
   };
   
   /**
-   *
+   * all html/styling
    */
   CSSVacuum.prototype.buildHTML = function () {
     var $innerButton = $('<span/>').text('CSS').css({
@@ -68,6 +70,8 @@
       'color':'rgb(226, 93, 93)',
       'border':'none',
       'cursor':'pointer',
+      '-webkit-box-shadow':'rgba(0, 0, 0, .4) 0px 0px 10px 0px',
+      'box-shadow':'rgba(0, 0, 0, .4) 0px 0px 10px 0px',
       'opacity':'.5'
     }).html($innerButton).append('vacuum');
 
@@ -80,8 +84,6 @@
       'margin':'0',
       'left':'45%',
       'z-index':this.SAFE_INDEX,
-      '-webkit-box-shadow':'rgba(0, 0, 0, .4) 0px 0px 10px 0px',
-      'box-shadow':'rgba(0, 0, 0, .4) 0px 0px 10px 0px',
       'text-align':'center'
     }).html(this.$BUTTON);
 
@@ -106,7 +108,7 @@
   };
 
   /**
-   *
+   * initialize listeners when elements on page
    */
   CSSVacuum.prototype.enableVacuum = function () {
     this.$BUTTON.css({
@@ -115,7 +117,7 @@
   }
   
   /**
-   *
+   * look at styles from all loaded stylesheets.
    */
   CSSVacuum.prototype.browseOllivanders = function () {
     var _this = this;
@@ -125,6 +127,7 @@
       if (v.cssRules != null) {
         _this.takeWands(v.cssRules);
       } else if (v.href != null) {
+        // if the stylesheet is from a cdn, we have to get creative
         $.ajax({
           url: v.href,
           dataTypes: 'text',
@@ -150,7 +153,7 @@
   };
   
   /**
-   *
+   * build full list of all styles
    */  
   CSSVacuum.prototype.takeWands = function (wands) {
     var _this = this;
@@ -164,7 +167,7 @@
   };
   
   /**
-   *
+   * build new stylesheet based on relevant above fold styles
    */  
   CSSVacuum.prototype.sortingHat = function () {
     var _this = this;
@@ -197,7 +200,7 @@
   };
   
   /**
-   *
+   * initialize animation
    */  
   CSSVacuum.prototype.abracadabra = function () {
     $(this.$CANVAS.canvas).css({
@@ -228,7 +231,7 @@
   };
   
   /**
-   *
+   * animate lines
    */  
   CSSVacuum.prototype.waveWand = function (line, pos) {
     var _this = this;
@@ -242,7 +245,7 @@
   };
   
   /**
-   *
+   * add above the fold styles to master list
    */  
   CSSVacuum.prototype.dementorsKiss = function ($el, _this) {
     _this.addIfUnique(_this.SELECTORS, $el.prop('tagName').toLowerCase(), '');
@@ -257,7 +260,7 @@
   };
 
   /**
-   *
+   * check that elements are unique
    */  
   CSSVacuum.prototype.addIfUnique = function (ar, v, prefix) {
     if (v != null) {
@@ -269,7 +272,7 @@
   };
 
   /**
-   *
+   * enable vacuum if ?CSSVacuum in search param
    */
   function getInstance (instance) {
     if (!instance && !!document.location.search && !!~document.location.search.indexOf('CSSVacuum')) {
