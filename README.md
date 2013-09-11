@@ -4,7 +4,7 @@ _optimize your critical rendering path_
 
 __created at tech crunch disrupt sf 2013__
 
-![CSSVacuum](https://raw.github.com/ndreckshage/CSSVacuum/master/lib/cssvacuum.jpg)
+![CSSVacuum](https://raw.github.com/ndreckshage/CSSVacuum/master/images/cssvacuum.jpg)
 
 Critical Rendering Path
 =======================
